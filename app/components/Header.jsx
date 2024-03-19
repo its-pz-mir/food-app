@@ -1,0 +1,84 @@
+'use client'
+import React, { useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { GiBeachBag } from "react-icons/gi";
+import { LuUser, LuMenuSquare } from "react-icons/lu";
+import { FaRegWindowClose } from "react-icons/fa";
+
+const Header = () => {
+    const pathname = usePathname();
+    const nav_links = [
+        {
+            display: "Home",
+            path: "/"
+        },
+        {
+            display: "Foods",
+            path: "/Foods"
+        },
+        {
+            display: "Cart",
+            path: "/Cart"
+        },
+        {
+            display: "Contact",
+            path: "/contact"
+        }
+    ]
+
+    const menuRef = useRef(null);
+    const closeIconRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
+    return (
+        <div>
+            <div className="flex justify-between items-center p-2 md:px-20 lg:px-40 relative">
+                <div className="logo flex flex-col justify-center items-center">
+                    <Image src={'/images/res-logo.png'} width={50} height={50} alt='Logo'></Image>
+                    <span className='text-sm font-bold'>Tasty Treat</span>
+                </div>
+                <div className={`${isMenuOpen ? 'links' : 'hidden'} md:block`} ref={menuRef}>
+                    <div className="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 items-center absolute md:static right-0 h-screen md:h-auto z-50 top-0 bg-white md:bg-transparent shadow-xl md:shadow-none overflow-y-auto">
+                        {
+                            nav_links.map((item, index) => (
+                                <div key={index} className='px-10 md:px-4 w-full relative'>
+                                    <Link href={item.path} className={`block md:text-lg hover:text-red-500 w-full py-2 px-4 ${pathname === item.path ? 'text-red-500' : ''}`} onClick={closeMenu}>
+                                        {item.display}
+                                    </Link>
+                                </div>
+                            ))
+                        }
+                        <div className="close" ref={closeIconRef} onClick={toggleMenu}>
+                            <FaRegWindowClose className='text-2xl md:hidden absolute top-1 cursor-pointer right-1' />
+                        </div>
+                    </div>
+                </div>
+                <div className="icons flex justify-center items-center space-x-4 md:space-x-8">
+                    <div className="cart flex justify-center items-center relative">
+                        <GiBeachBag className='text-2xl md:text-3xl cursor-pointer' />
+                        <span className='bg-red-400 rounded-full text-center text-[11px] px-1 text-white absolute -right-2 -top-1'>2</span>
+                    </div>
+                    <div className="user">
+                        <LuUser className='text-2xl md:text-3xl cursor-pointer' />
+                    </div>
+                    <div className="cart">
+                        <LuMenuSquare className='text-2xl cursor-pointer md:hidden' onClick={toggleMenu} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Header

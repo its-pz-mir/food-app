@@ -4,7 +4,7 @@ import Slider from './Slider'
 
 const Testimonials = () => {
     return (
-        <div className='mx-2 md:mx-10 md:grid md:grid-cols-2 mt-40 text-center md:text-start '>
+        <div className='px-2 md:px-10 lg:px-20 xl:px-40 md:grid md:grid-cols-2 mt-40 text-center md:text-start '>
             <div className="left">
                 <h4 className='text-red-500 font-bold text-lg'>Testimonials</h4>
                 <h1 className='font-bold text-4xl my-4'>What our <span className='text-red-400'>Customer</span> are saying</h1>

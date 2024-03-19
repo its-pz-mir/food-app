@@ -6,7 +6,7 @@ let pizzaProducts = products.filter(product => product.category === 'Pizza').sli
 
 const Pizza = () => {
     return (
-        <div className='mx-20'>
+        <div className='px-2 md:px-10 lg:px-20 xl:px-40'>
             <h2 className='text-5xl text-center mt-20 font-bold'>Hot Pizza</h2>
             <div className='flex flex-col justify-center items-center space-y-8 mt-6 md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
                 {

@@ -4,18 +4,14 @@ import Header from '@/app/components/Header';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 
 const Page = () => {
-
   // useStates
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   //Api
   const api = "https://foodapp-backend-production.up.railway.app//api/login";
-  const router = useRouter();
-
   // Function to Login the User...
   const handleSubmit = async (e) => {
     e.preventDefault();

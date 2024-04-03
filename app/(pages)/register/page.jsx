@@ -1,7 +1,7 @@
 'use client'
 import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify';

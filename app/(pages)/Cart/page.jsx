@@ -6,7 +6,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import Image from 'next/image';
 
 
-const page = () => {
+const Page = () => {
     const [totalPrice, setTotalPrice] = useState();
 
     const orderProducts = [
@@ -87,4 +87,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

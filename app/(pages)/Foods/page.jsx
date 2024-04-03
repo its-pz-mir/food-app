@@ -3,7 +3,6 @@ import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
 import React, { useEffect, useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
-// import products from '@/public/fake-data/products';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -12,13 +11,19 @@ import axios from 'axios';
 
 const Page = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get("https://foodapp-backend-production.up.railway.app/api/products");
-      console.log(response.data);
-      setProducts(response.data);
+      try {
+        const response = await axios.get("https://foodapp-backend-production.up.railway.app/api/products");
+        setProducts(response.data);
+        setLoading(false); // Set loading to false after data is fetched
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false); // Set loading to false in case of an error
+      }
     };
     fetchProducts();
   }, []);
@@ -48,18 +53,22 @@ const Page = () => {
             </select>
           </div>
         </div>
-        <div className="products my-10 flex flex-col justify-center items-center space-y-8 mt-6 md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {products.map((product) => (
-            <div key={product._id} onClick={() => handleClicked(product._id)} className=' cursor-pointer bg-white space-y-4 rounded-md pb-4 shadow-2xl w-80 flex flex-col justify-center items-center'>
-              <Image src={product.image1} width={150} height={150} alt={product.name} />
-              <h1 className='text-lg font-semibold pb-3'>{product.name}</h1>
-              <div className='flex justify-center items-center space-x-28'>
-                <div className="price text-red-500 font-bold text-xl">$ {product.price}</div>
-                <button className='bg-red-500 text-white px-4 py-2 rounded-lg'>Add to Cart</button>
+        {loading ? (
+          <div className="text-center my-10">Loading...</div>
+        ) : (
+          <div className="products my-10 flex flex-col justify-center items-center space-y-8 mt-6 md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+            {products.map((product) => (
+              <div key={product._id} onClick={() => handleClicked(product._id)} className=' cursor-pointer bg-white space-y-4 rounded-md pb-4 shadow-2xl w-80 flex flex-col justify-center items-center'>
+                <Image src={product.image1} width={150} height={150} alt={product.name} />
+                <h1 className='text-lg font-semibold pb-3'>{product.name}</h1>
+                <div className='flex justify-center items-center space-x-28'>
+                  <div className="price text-red-500 font-bold text-xl">$ {product.price}</div>
+                  <button className='bg-red-500 text-white px-4 py-2 rounded-lg'>Add to Cart</button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </div>

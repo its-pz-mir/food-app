@@ -31,7 +31,7 @@ const Slider = () => {
     return (
         <AliceCarousel
             items={items.map((item) => (
-                <div key={item.index} className='mx-10 cursor-default flex flex-col space-y-4 justify-center md:justify-start items-center md:items-start'>
+                <div key={item.index} className='mx-2 md:mx-10 cursor-default flex flex-col space-y-4 justify-center md:justify-start items-center md:items-start'>
                     <p className='text-center md:text-start'>{item.para}</p>
                     <div className='space-y-4 md:space-x-4 md:justify-center md:items-center flex flex-col justify-center items-center md:flex-row'>
                         <Image src={item.img} width={70} height={70} alt='Avatar 01' className='rounded-lg'></Image>

@@ -10,7 +10,7 @@ import Treat from "./components/Treat";
 
 export default function Home() {
   return (
-    <div className="bg-[#fcfcfc]">
+    <div className="bg-[#fcfcfc] overflow-x-hidden">
       <Header />
       <Hero />
       <Catagory />

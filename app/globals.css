@@ -6,3 +6,36 @@
 .show {
   display: block;
 }
+
+.productImage {
+  background-image: url("/cartbg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cartBG {
+  background: url("/1734.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(254 226 226) inset;
+  /* Override Chrome autofill background color */
+  -webkit-text-fill-color: black;
+  /* Override Chrome autofill text color */
+}

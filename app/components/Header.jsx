@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
+import Cart from './Cart';
 import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
@@ -32,7 +32,7 @@ const Header = () => {
     const menuRef = useRef(null);
     const closeIconRef = useRef(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const [isCartOpen, setIsCartOpen] = useState(false);
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -41,8 +41,13 @@ const Header = () => {
         setIsMenuOpen(false);
     };
 
+    const toggleCart = () => {
+        setIsCartOpen(!isCartOpen);
+
+    }
+
     return (
-        <div>
+        <div className='relative'>
             <div className="flex justify-between items-center p-2 md:px-20 lg:px-40 relative">
                 <div className="logo flex flex-col justify-center items-center">
                     <Image src={'/images/res-logo.png'} width={50} height={50} alt='Logo'></Image>
@@ -65,17 +70,22 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="icons flex justify-center items-center space-x-4 md:space-x-8">
-                    <div className="cart flex justify-center items-center relative">
+                    <div className="cart flex justify-center items-center relative" onClick={toggleCart}>
                         <GiBeachBag className='text-2xl md:text-3xl cursor-pointer' />
                         <span className='bg-red-400 rounded-full text-center text-[11px] px-1 text-white absolute -right-2 -top-1'>2</span>
                     </div>
-                    <div className="user">
-                        <LuUser className='text-2xl md:text-3xl cursor-pointer' />
-                    </div>
+                    <Link href={"/login"}>
+                        <div className="user" >
+                            <LuUser className='text-2xl md:text-3xl cursor-pointer' />
+                        </div>
+                    </Link>
                     <div className="cart">
                         <LuMenuSquare className='text-2xl cursor-pointer md:hidden' onClick={toggleMenu} />
                     </div>
                 </div>
+            </div>
+            <div className='absolute top-0 right-0'>
+                {isCartOpen && <Cart toggleCart={toggleCart} />}
             </div>
         </div>
     )

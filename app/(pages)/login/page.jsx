@@ -16,11 +16,11 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      axios.post(api,{
-        email,password
+      axios.post(api, {
+        email, password
       })
     } catch (error) {
-      
+
     }
   }
 
@@ -46,7 +46,7 @@ const Page = () => {
                 </div>
               </form>
             </div>
-            <p className='text-center mt-8'>Don't Have an Account ? <Link href={"./register"}> Create Account</Link></p>
+            <p className='text-center mt-8'>Dont Have an Account ? <Link href={"./register"}> Create Account</Link></p>
           </div>
         </div>
         <Footer />

@@ -63,11 +63,11 @@ const Page = () => {
                         {
                             orderProducts.map((product) => (
                                 <tr key={product.id}>
-                                    <td><Image src={product.image01} width={40} height={40} /></td>
+                                    <td><Image src={product.image01} width={40} height={40} alt={product.title} /></td>
                                     <td className='text-lg text-center'>{product.title}</td>
                                     <td>${product.price}</td>
                                     <td>1px</td>
-                                    <td><MdOutlineDelete className='text-2xl cursor-pointer ' /></td>
+                                    <td><MdOutlineDelete className='text-2xl cursor-pointer' /></td>
                                 </tr>
                             ))
                         }

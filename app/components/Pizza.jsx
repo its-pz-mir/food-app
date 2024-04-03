@@ -2,7 +2,7 @@ import React from 'react';
 import products from '@/public/fake-data/products';
 import Image from 'next/image';
 
-let pizzaProducts = products.filter(product => product.category === 'Pizza').slice(0, 4); // Slice to get only the first 4 pizza products
+let pizzaProducts = products.filter(product => product.category === 'Pizza').slice(0, 4);
 
 const Pizza = () => {
     return (

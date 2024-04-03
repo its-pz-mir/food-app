@@ -6,7 +6,7 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-const page = () => {
+const Page = () => {
 
   // useStates
   const [email, setEmail] = useState("");
@@ -59,4 +59,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

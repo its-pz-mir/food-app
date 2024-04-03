@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import { useRouter } from 'next/router'
 
 
-const page = () => {
+const Page = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -78,4 +78,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

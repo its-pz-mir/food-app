@@ -12,20 +12,17 @@ import { useCookies } from 'react-cookie';
 
 const Header = () => {
     // Api  https://foodapp-backend-production.up.railway.app/api/user
-
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, setCookie] = useCookies(['user']);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const verifyCookie = async () => {
-            const data = await axios.post(
-                "https://foodapp-backend-production.up.railway.app/api/user",
-                {},
-                { withCredentials: true }
-            );
-            console.log(data);
+        const fetchUser = async () => {
+            const response = await axios.post("https://foodapp-backend-production.up.railway.app/api/user", {});
+            console.log(response.data);
+            setUser(response.data);
         };
-        verifyCookie();
-    }, [cookies]);
+        fetchUser();
+    }, []);
 
 
     const pathname = usePathname();

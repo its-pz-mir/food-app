@@ -14,7 +14,7 @@ const Testimonials = () => {
                 </div>
             </div>
             <div className="righ flex justify-center items-center">
-                <Image src={"/images/network.png"} width={600} height={600} />
+                <Image src={"/images/network.png"} width={600} height={600} alt="Network Image" />
             </div>
         </div>
     )

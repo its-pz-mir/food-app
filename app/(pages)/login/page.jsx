@@ -1,11 +1,10 @@
 'use client';
 import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useCookies } from "react-cookie";
 
 const page = () => {
 
@@ -14,30 +13,18 @@ const page = () => {
   const [password, setPassword] = useState("");
 
   //Api
-  const api = "http://localhost:8080/api/login";
-  const otherApi = "http://localhost:8080/api/verify"
+  const api = "https://foodapp-backend-production.up.railway.app//api/login";
   const router = useRouter();
-
-  useEffect(() => {
-    const verifyUser = async () => {
-      try {
-        const response = await axios.get(otherApi);
-        console.log(response);
-      } catch (error) {
-        console.log(error.response.data.Msg);
-      }
-    }
-    verifyUser();
-  })
 
   // Function to Login the User...
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(api, { email, password });
-      console.log(data);
+      axios.post(api,{
+        email,password
+      })
     } catch (error) {
-      console.log(error.response.data.Msg);
+      
     }
   }
 

@@ -18,7 +18,7 @@ const page = () => {
   // const router = useRouter();
 
   const handleSubmit = async (e) => {
-    const api = "http://localhost:8080/api/signup"
+    const api = "https://foodapp-backend-production.up.railway.app//api/signup"
     e.preventDefault();
     console.log(name, email, password, cpassword);
     if (password !== cpassword) {

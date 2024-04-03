@@ -18,7 +18,7 @@ const Page = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("https://foodapp-backend-production.up.railway.app/api/products");
-        setProducts(response.data);
+        setProducts(response.data.products);
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error("Error fetching products:", error);

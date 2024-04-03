@@ -19,6 +19,7 @@ export default function Page({ params }) {
     const handleTab = (givenTab) => {
         setTab(givenTab)
     }
+    
     return (
         <>
             <Header />
@@ -32,12 +33,12 @@ export default function Page({ params }) {
                     <div className="imgdesc flex w-screen justify-center items-center mx-auto px-40">
                         <div className="img w-1/2 flex items-center space-x-10">
                             <div className="sideimages space-y-2">
-                                <Image src={thisProduct.image01} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 1st Image" onClick={() => changeImage(thisProduct.image01)} alt={thisProduct.title} />
-                                <Image src={thisProduct.image02} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 2nd Image" onClick={() => changeImage(thisProduct.image02)} alt={thisProduct.title} />
-                                <Image src={thisProduct.image03} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 3rd Image" onClick={() => changeImage(thisProduct.image03)} alt={thisProduct.title} />
+                                <Image src={thisProduct.image01} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 1st Image" onClick={() => changeImage(thisProduct.image01)} />
+                                <Image src={thisProduct.image02} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 2nd Image" onClick={() => changeImage(thisProduct.image02)} />
+                                <Image src={thisProduct.image03} width={70} height={70} className="cursor-pointer hover:w-20" alt="Cart 3rd Image" onClick={() => changeImage(thisProduct.image03)} />
                             </div>
                             <div className="displayImage">
-                                <Image src={img} width={500} height={500} />
+                                <Image src={img} width={500} height={500} alt="Display image" />
                             </div>
                         </div>
                         <div className="desc w-1/2 space-y-6">

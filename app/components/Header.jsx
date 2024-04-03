@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,8 +7,21 @@ import Cart from './Cart';
 import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 const Header = () => {
+    const [cookie, setCookie] = useCookies([['token']])
+
+    useEffect(() => {
+        const getUserData = async () => {
+            const api = "https://foodapp-backend-production.up.railway.app/api/user"
+            const response = await axios.get(api);
+            console.log(response);
+        }
+        getUserData();
+    })
+
     const pathname = usePathname();
     const nav_links = [
         {

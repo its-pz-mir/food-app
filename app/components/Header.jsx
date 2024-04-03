@@ -8,22 +8,27 @@ import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 const Header = () => {
-
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
     // Api  https://foodapp-backend-production.up.railway.app/api/user
 
     useEffect(() => {
+        const api = "https://foodapp-backend-production.up.railway.app/api/user";
+        const token = cookies.token;
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://foodapp-backend-production.up.railway.app/api/user');
+                const response = await axios.get(api);
                 console.log(response.data);
             } catch (error) {
                 console.log(error);
             }
-        }
+        };
+
         fetchData();
-    })
+    }, []); // Empty dependency array to ensure the effect runs only once after the initial render
+
 
     const pathname = usePathname();
     const nav_links = [

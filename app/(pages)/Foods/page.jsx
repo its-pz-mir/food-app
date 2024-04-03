@@ -50,7 +50,7 @@ const Page = () => {
         </div>
         <div className="products my-10 flex flex-col justify-center items-center space-y-8 mt-6 md:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {products.map((product) => (
-            <div key={product._id} onClick={() => handleClicked(product.id)} className=' cursor-pointer bg-white space-y-4 rounded-md pb-4 shadow-2xl w-80 flex flex-col justify-center items-center'>
+            <div key={product._id} onClick={() => handleClicked(product._id)} className=' cursor-pointer bg-white space-y-4 rounded-md pb-4 shadow-2xl w-80 flex flex-col justify-center items-center'>
               <Image src={product.image1} width={150} height={150} alt={product.name} />
               <h1 className='text-lg font-semibold pb-3'>{product.name}</h1>
               <div className='flex justify-center items-center space-x-28'>

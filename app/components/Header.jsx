@@ -17,7 +17,7 @@ const Header = () => {
 
     useEffect(() => {
         const verifyCookie = async () => {
-            const { data } = await axios.post(
+            const data = await axios.post(
                 "https://foodapp-backend-production.up.railway.app/api/user",
                 {},
                 { withCredentials: true }

@@ -8,21 +8,21 @@ import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 
 const Header = () => {
     // Api  https://foodapp-backend-production.up.railway.app/api/user
-    const [cookies, setCookie] = useCookies(['user']);
-    const [user, setUser] = useState(null);
+    // const [cookies, setCookie] = useCookies(['user']);
+    // const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            const response = await axios.post("https://foodapp-backend-production.up.railway.app/api/user", {});
-            console.log(response.data);
-            setUser(response.data);
-        };
-        fetchUser();
-    }, []);
+    // useEffect(() => {
+    //     const fetchUser = async () => {
+    //         const response = await axios.post("https://foodapp-backend-production.up.railway.app/api/user", {});
+    //         console.log(response.data);
+    //         setUser(response.data);
+    //     };
+    //     fetchUser();
+    // }, []);
 
 
     const pathname = usePathname();

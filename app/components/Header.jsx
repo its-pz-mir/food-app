@@ -7,19 +7,22 @@ import Cart from './Cart';
 import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
-import { useCookies } from 'react-cookie';
 import axios from 'axios';
 
 const Header = () => {
-    const [cookie, setCookie] = useCookies([['token']])
+
+    // Api  https://foodapp-backend-production.up.railway.app/api/user
 
     useEffect(() => {
-        const getUserData = async () => {
-            const api = "https://foodapp-backend-production.up.railway.app/api/user"
-            const response = await axios.get(api);
-            console.log(response);
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://foodapp-backend-production.up.railway.app/api/user');
+                console.log(response.data);
+            } catch (error) {
+                console.log(error);
+            }
         }
-        getUserData();
+        fetchData();
     })
 
     const pathname = usePathname();

@@ -25,7 +25,7 @@ const Header = () => {
             console.log(data);
         };
         verifyCookie();
-    }, [cookies, navigate, removeCookie]);
+    }, [cookies]);
 
 
     const pathname = usePathname();

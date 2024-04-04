@@ -3,10 +3,8 @@ import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
 import React, { useEffect, useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
-import { useAppDispatch } from '@/app/lib/hook';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import { addToCart } from '@/app/lib/slice/CartSlice';
 
 // API = https://foodapp-backend-production.up.railway.app/api/products
 
@@ -14,7 +12,6 @@ const Page = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -66,7 +63,7 @@ const Page = () => {
                 <h1 className='text-lg font-semibold pb-3'>{product.name}</h1>
                 <div className='flex justify-center items-center space-x-28'>
                   <div className="price text-red-500 font-bold text-xl">$ {product.price}</div>
-                  <button className='bg-red-500 text-white px-4 py-2 rounded-lg' onClick={() => dispatch(addToCart(product.name, product.image1))}>Add to Cart</button>
+                  <button className='bg-red-500 text-white px-4 py-2 rounded-lg' >Add to Cart</button>
                 </div>
               </div>
             ))}

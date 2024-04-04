@@ -8,7 +8,6 @@ import { GiBeachBag } from "react-icons/gi";
 import { LuUser, LuMenuSquare } from "react-icons/lu";
 import { FaRegWindowClose } from "react-icons/fa";
 import axios from 'axios';
-import { useAppSelector } from '../lib/hook';
 
 
 // import { useCookies } from 'react-cookie';
@@ -93,7 +92,7 @@ const Header = () => {
                 <div className="icons flex justify-center items-center space-x-4 md:space-x-8">
                     <div className="cart flex justify-center items-center relative" onClick={toggleCart}>
                         <GiBeachBag className='text-2xl md:text-3xl cursor-pointer' />
-                        <span className='bg-red-400 rounded-full text-center text-[11px] px-1 text-white absolute -right-2 -top-1'>{cartItems.length}</span>
+                        <span className='bg-red-400 rounded-full text-center text-[11px] px-1 text-white absolute -right-2 -top-1'>2</span>
                     </div>
                     <Link href={"/login"}>
                         <div className="user" >

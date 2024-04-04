@@ -4,7 +4,7 @@ import axios from 'axios'
 import Header from '@/app/components/Header';
 
 
-const page = () => {
+const Page = () => {
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -85,4 +85,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

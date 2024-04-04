@@ -27,7 +27,7 @@ const Header = () => {
     //     fetchUser();
     // }, []);
 
-    const cartItems = useAppSelector(state => state.cart.cart);
+    const cartItems = useAppSelector(state => state.cart);
 
 
     const pathname = usePathname();
